@@ -1,4 +1,4 @@
-name: Module 101
+name: Module Grading
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
       - name: Install dependencies
         run: pip install pytest
 
-      - name: Test LMS 126
+      - name: Test Module
         run: python -m pytest tests/lms126
 
       - name: Retrieve Badge Title
