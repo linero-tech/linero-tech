@@ -1,4 +1,4 @@
-name: Module 101
+name: Module Grading
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Move helper files
         run: cp -r ./kotlin-hw-results/src/test/kotlin/helper ./src/test/kotlin
 
-      - name: Delete all modules except LMS 126
+      - name: Delete all non-graded modules
         run: |
           ls
           cd src/main/kotlin
@@ -35,7 +35,7 @@ jobs:
           cp -r ./kotlin-hw-results/src/test/kotlin/lms_126 ./src/test/kotlin
           gradle --version
 
-      - name: Test LMS 126
+      - name: Test Module
         run: gradle test --tests "lms_126.*"
 
       - name: Retrieve Badge Title
