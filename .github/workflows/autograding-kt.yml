@@ -29,18 +29,16 @@ jobs:
           path: ./kotlin-hw-results
 
       - name: Move helper files
-        run: cp -r ./kotlin-hw-results/src/test/kotlin/helper ./src/test/kotlin
+        run: |
+          cp -r ./kotlin-hw-results/src/test/kotlin/helper ./src/test/kotlin
+          cp -r ./kotlin-hw-results/src/test/kotlin/${{ inputs.module-id }} ./src/test/kotlin
+          gradle --version
 
       - name: Delete all non-graded modules
         run: |
           ls
           cd src/main/kotlin
           rm -r $(ls -A | grep -v ${{ inputs.module-id }})
-
-      - name: Move test files
-        run: |
-          cp -r ./kotlin-hw-results/src/test/kotlin/${{ inputs.module-id }} ./src/test/kotlin
-          gradle --version
 
       - name: Test Module
         run: gradle test --tests "${{ inputs.module-id }}.*"
