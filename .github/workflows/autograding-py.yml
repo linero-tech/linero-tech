@@ -32,9 +32,6 @@ jobs:
         run: |
           cp -r ./python-hw-results/tests/custom_assertions.py ./tests
           cp -r ./python-hw-results/tests/module_loader.py ./tests
-
-      - name: Move test files
-        run: |
           cp -r ./python-hw-results/tests/${{ inputs.module-id }} ./tests
 
       - name: Setup Python
