@@ -80,7 +80,7 @@ jobs:
         uses: RubbaBoy/BYOB@v1.3.0
         with:
           NAME: ${{ inputs.module-id }}
-          LABEL: 'Module 101'
+          LABEL: ${{ inputs.module-name }}
           ICON: 'github'
           STATUS: ${{ env.badgeTitle }}% Completed
           COLOR: ${{ env.badgeColor }}
