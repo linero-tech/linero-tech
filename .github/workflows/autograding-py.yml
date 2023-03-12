@@ -28,7 +28,7 @@ jobs:
           token: ${{ secrets.my_pat }}
           path: ./python-hw-results
 
-      - name: Move helper files
+      - name: Move test files to local repository
         run: |
           cp -r ./python-hw-results/tests/custom_assertions.py ./tests
           cp -r ./python-hw-results/tests/module_loader.py ./tests
