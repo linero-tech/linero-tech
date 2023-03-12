@@ -1,10 +1,17 @@
 name: Module Grading
 
 on:
-  push:
-    branches: [ main ]
-
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+        module-name:
+          required: true
+          type: string
+          default: ''
+        
+        module-id:
+          required: true
+          type: string
+          default: ''
 
 jobs:
   build:
