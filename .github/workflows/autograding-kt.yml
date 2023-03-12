@@ -28,7 +28,7 @@ jobs:
           token: ${{ secrets.my_pat }}
           path: ./kotlin-hw-results
 
-      - name: Move helper files
+      - name: Move test files to local repository
         run: |
           cp -r ./kotlin-hw-results/src/test/kotlin/helper ./src/test/kotlin
           cp -r ./kotlin-hw-results/src/test/kotlin/${{ inputs.module-id }} ./src/test/kotlin
