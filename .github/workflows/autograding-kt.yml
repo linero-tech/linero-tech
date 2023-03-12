@@ -35,15 +35,15 @@ jobs:
         run: |
           ls
           cd src/main/kotlin
-          rm -r $(ls -A | grep -v lms_126)
+          rm -r $(ls -A | grep -v ${{ inputs.module-id }})
 
       - name: Move test files
         run: |
-          cp -r ./kotlin-hw-results/src/test/kotlin/lms_126 ./src/test/kotlin
+          cp -r ./kotlin-hw-results/src/test/kotlin/${{ inputs.module-id }} ./src/test/kotlin
           gradle --version
 
       - name: Test Module
-        run: gradle test --tests "lms_126.*"
+        run: gradle test --tests "${{ inputs.module-id }}.*"
 
       - name: Retrieve Badge Title
         if: always()
@@ -73,7 +73,7 @@ jobs:
         if: always()
         uses: RubbaBoy/BYOB@v1.3.0
         with:
-          NAME: module_126
+          NAME: ${{ inputs.module-id }}
           LABEL: 'Module 101'
           ICON: 'github'
           STATUS: ${{ env.badgeTitle }}% Completed
