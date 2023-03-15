@@ -36,7 +36,6 @@ jobs:
 
       - name: Delete all non-graded modules
         run: |
-          ls
           cd src/main/kotlin
           rm -r $(ls -A | grep -v ${{ inputs.module-id }})
 
